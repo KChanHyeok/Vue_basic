@@ -6,15 +6,12 @@
 
 <script>
 export default {
-    props:{
-        todos:{
-            type:Array,
-            required:true
-        }
-    },
     computed: {
+        // todos(){
+        //     return this.$store.state.todos;
+        // },
         number0fcompletedTodo(){
-            return this.todos.filter(todo => todo.checked).length;
+            return this.$store.getters['todo/number0fcompletedTodo']
         }
     }
 }

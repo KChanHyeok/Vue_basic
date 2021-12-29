@@ -15,18 +15,17 @@ export default {
     components:{
         Todo
     },
-   props:{
-       todos: {
-            type: Array,
-            required: true
-       }
-   },
+    computed:{
+        todos(){
+            return this.$store.state.todo.todos;
+        }
+    },
    methods:{
        toggleCheckbox(value){
-           this.$emit("toggle-checkbox",value)
+           this.$emit("todo/toggle-checkbox",value)
        },
        deleteTodo(todoId){
-            this.$emit("click-delete", todoId);
+            this.$emit("todo/click-delete", todoId);
        }
     }
 }
